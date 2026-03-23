@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Design Philosophy: Zen Minimalism
+ * - Serene color palette with warm cream backgrounds and deep charcoal text
+ * - Generous whitespace and vertical rhythm
+ * - Subtle ink wash effects and brush stroke elements
+ * - Elegant serif typography for contemplative reading
+ */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Zen Minimalism Color Palette */
+  --color-cream: #F5F1E8;
+  --color-cream-light: #FAFAF8;
+  --color-taupe: #E8E4DC;
+  --color-charcoal: #2C2C2C;
+  --color-bronze-gold: #A89968;
+  --color-sage: #B8C5A6;
+  --color-accent-light: #D4C5B0;
+  
+  --primary: #A89968;
+  --primary-foreground: #F5F1E8;
+  --sidebar-primary: #A89968;
+  --sidebar-primary-foreground: #F5F1E8;
+  --chart-1: #B8C5A6;
+  --chart-2: #A89968;
+  --chart-3: #8B7355;
+  --chart-4: #6B5D4F;
+  --chart-5: #4A4238;
+  --radius: 0.65rem;
+  --background: #F5F1E8;
+  --foreground: #2C2C2C;
+  --card: #FAFAF8;
+  --card-foreground: #2C2C2C;
+  --popover: #FAFAF8;
+  --popover-foreground: #2C2C2C;
+  --secondary: #E8E4DC;
+  --secondary-foreground: #2C2C2C;
+  --muted: #E8E4DC;
+  --muted-foreground: #A89968;
+  --accent: #A89968;
+  --accent-foreground: #FAFAF8;
+  --destructive: #C41E3A;
+  --destructive-foreground: #FAFAF8;
+  --border: #E8E4DC;
+  --input: #E8E4DC;
+  --ring: #A89968;
+  --sidebar: #FAFAF8;
+  --sidebar-foreground: #2C2C2C;
+  --sidebar-accent: #A89968;
+  --sidebar-accent-foreground: #FAFAF8;
+  --sidebar-border: #E8E4DC;
+  --sidebar-ring: #A89968;
+}
+
+.dark {
+  --primary: #A89968;
+  --primary-foreground: #F5F1E8;
+  --sidebar-primary: #A89968;
+  --sidebar-primary-foreground: #F5F1E8;
+  --background: #1A1815;
+  --foreground: #E8E4DC;
+  --card: #2C2620;
+  --card-foreground: #E8E4DC;
+  --popover: #2C2620;
+  --popover-foreground: #E8E4DC;
+  --secondary: #3A3228;
+  --secondary-foreground: #D4C5B0;
+  --muted: #3A3228;
+  --muted-foreground: #B8A890;
+  --accent: #A89968;
+  --accent-foreground: #1A1815;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #1A1815;
+  --border: #3A3228;
+  --input: #3A3228;
+  --ring: #A89968;
+  --chart-1: #B8C5A6;
+  --chart-2: #A89968;
+  --chart-3: #8B7355;
+  --chart-4: #6B5D4F;
+  --chart-5: #4A4238;
+  --sidebar: #2C2620;
+  --sidebar-foreground: #E8E4DC;
+  --sidebar-accent: #A89968;
+  --sidebar-accent-foreground: #1A1815;
+  --sidebar-border: #3A3228;
+  --sidebar-ring: #A89968;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lora', 'Noto Serif TC', serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Noto Serif TC', serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+  
+  /* Zen Design Components */
+  .zen-divider {
+    @apply my-12 md:my-16 lg:my-20;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #A89968, transparent);
+  }
+  
+  .zen-section {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  
+  .zen-card {
+    @apply bg-card text-card-foreground rounded-sm p-8 md:p-10;
+    border: 1px solid #E8E4DC;
+    transition: all 400ms ease-out;
+  }
+  
+  .zen-card:hover {
+    @apply shadow-lg;
+    border-color: #A89968;
+  }
+  
+  .ink-wash-bg {
+    background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663161794951/DVtZ7BdMyyW8sZVwFy5dxB/paper-texture-bg-5NNqXdB3fpdZKoVP6Zv8DT.webp');
+    background-attachment: fixed;
+  }
+  
+  .enso-icon {
+    @apply inline-block w-8 h-8 md:w-10 md:h-10;
+    background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663161794951/DVtZ7BdMyyW8sZVwFy5dxB/zen-circle-pattern-L9eyUNKA6FC2YHfH2MmujW.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .lotus-icon {
+    @apply inline-block w-6 h-6 md:w-8 md:h-8;
+    background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663161794951/DVtZ7BdMyyW8sZVwFy5dxB/lotus-symbol-cCSvfjEisxyLvnKkMvvntN.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  /* Smooth transitions */
+  .transition-zen {
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Fade in animation */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 600ms ease-out;
+  }
+}
